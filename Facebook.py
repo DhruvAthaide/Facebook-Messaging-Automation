@@ -8,8 +8,8 @@ import pandas as pd
 import random
 
 # Facebook Login Credentials
-username = "Enter Your Username/Email"
-password = "Enter Your Password"
+username = "athaidedhruv@gmail.com"
+password = "Jonathan1908"
 
 # XLSX File Reading
 data = pd.read_excel("profile_links.xlsx", header=None, names=['Profile Links'])
@@ -65,6 +65,7 @@ for profile_link in profile_links:
         )
         message_button.click()
 
+
         # XPath for the message input field
         message_input_xpath = '/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div/div/div/div/div/div[2]/div[2]/div/div/div[4]/div[2]/div/div/div[1]/p'
 
@@ -92,9 +93,22 @@ for profile_link in profile_links:
         if messages_sent % max_messages == 0:
             print(f"Waiting for {time_interval / 60} minutes to avoid detection...")
             time.sleep(time_interval)
+            
+        try:
+            # Find the close chat button by Xpath
+            close_chat_button_xpath = '/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div/div/div/div/div/div[1]/div[2]/span[4]/div'
+            close_chat_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.XPATH, close_chat_button_xpath))
+            )
+            close_chat_button.click()
+            print("Clicked close chat button for previous Profile.")
+
+        except Exception as close_button_error:
+            print("Error clicking close chat button for previous Profile:", close_button_error)
 
     except Exception as e:
         print("Error sending message to", profile_link, ":", e)
+
 
     print(number, "-----------------------------------------Msg_automate_kaux---------------------------------------------")
     number += 1
