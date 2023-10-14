@@ -8,16 +8,18 @@ import pandas as pd
 import random
 
 # Add your Facebook login credentials
-username = "Enter your Username/Email ID Here"
-password = "Enter your Password Here"
+username = "Enter Your Username/Email"
+password = "Enter Your Password"
 
 # XLSX File Reading
 data = pd.read_excel("profile_links.xlsx", header=None, names=['Profile Links'])
 
 profile_links = data['Profile Links'].tolist()
 
-# Configuring the Chrome driver
+# Configuring the Chrome driver and Handling Notification Alert
 options = webdriver.ChromeOptions()
+prefs = {"profile.default_content_setting_values.notifications": 2}
+options.add_experimental_option("prefs", prefs)
 driver = webdriver.Chrome(options=options)
 
 # Log in to Facebook
@@ -53,25 +55,26 @@ for profile_link in profile_links:
             break
 
         driver.get(profile_link)
-        driver.implicitly_wait(10)  # Increase the wait time if the webpage takes time to load
+        driver.implicitly_wait(10)  # Wait for Website to Load
 
-        # Add logic to handle permissions if needed
-        # Example: You may need to click a button to grant permission for sending messages
+        # XPath for the message button
+        message_button_xpath = '/html/body/div[1]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[2]/div/div/div'
 
-        # Find and click the 'Message' button or the button leading to the messaging option
-        message_button_xpath = '//*[@id="mount_0_0_mF"]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[2]/div/div/div/div[1]/div[2]/span/span'
         message_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, message_button_xpath))
         )
         message_button.click()
 
+        # XPath for the message input field
+        message_input_xpath = '/html/body/div[1]/div/div[1]/div/div[5]/div/div[1]/div[1]/div/div/div/div/div/div[2]/div[2]/div/div/div[4]/div[2]/div/div/div[1]/p'
+
         # Wait for the messaging popup to load
         WebDriverWait(driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, 'div._1mf._1mj'))
+            EC.presence_of_element_located((By.XPATH, message_input_xpath))
         )
 
-        # Find the message input field
-        msg = driver.find_element_by_css_selector('div._1mf._1mj')
+        # Find the message input field using XPath
+        msg = driver.find_element(By.XPATH, message_input_xpath)
 
         for letters in text:
             msg.send_keys(letters)
@@ -92,11 +95,8 @@ for profile_link in profile_links:
 
     except Exception as e:
         print("Error sending message to", profile_link, ":", e)
-        # Handle specific exceptions if needed
-        # Example: If you encounter a permission denied error, handle it here
 
     print(number, "-----------------------------------------Msg_automate_kaux---------------------------------------------")
     number += 1
 
-# Close the driver after processing
 driver.quit()
