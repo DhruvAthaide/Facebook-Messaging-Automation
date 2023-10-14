@@ -7,7 +7,7 @@ import time
 import pandas as pd
 import random
 
-# Add your Facebook login credentials
+# Facebook Login Credentials
 username = "Enter Your Username/Email"
 password = "Enter Your Password"
 
