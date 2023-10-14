@@ -8,8 +8,8 @@ import pandas as pd
 import random
 
 # Facebook Login Credentials
-username = "athaidedhruv@gmail.com"
-password = "Jonathan1908"
+username = "Enter your Username/Email ID"
+password = "Enter your Password"
 
 # XLSX File Reading
 data = pd.read_excel("profile_links.xlsx", header=None, names=['Profile Links'])
