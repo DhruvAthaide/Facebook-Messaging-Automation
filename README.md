@@ -23,7 +23,7 @@ cd Facebook-Messaging-Automation
 pip install -r requirements.txt
 ```
 
-Then, you need to create a XlSX File or Excel File and name it:
+Then, you need to create a XLSX File or Excel File and name it:
 ```bash
 Name: profile_links.xlsx
 ```
