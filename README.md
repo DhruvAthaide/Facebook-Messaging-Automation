@@ -33,13 +33,23 @@ Then, you need to set the following column name in the Excel File and paste the 
 Column 1: Profile Links
 ```
 
+Then, you need to create a XLSX File or Excel File for the Failed Profiles and name it:
+```bash
+Name: failed_profiles.xlsx
+```
+
+Then, you need to set the following column name in the Failed Profiles Excel File:
+```bash
+Column 1: Profile Links
+```
+
 Then, in the 'Facebook.py' file on Line 11 & 12 Enter your Username/Email ID and Password in between the Quotes for the String:
 ```bash
 username = "Enter Your Username/Email"
 password = "Enter Your Password"
 ```
 
-Then, customize your messages which you want to send to the facebook profile's on Line 46-51 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
+Then, customize your messages which you want to send to the facebook profile's on Line 52-57 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
 ```bash
 messages = [
     "Message 1",

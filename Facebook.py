@@ -8,13 +8,19 @@ import pandas as pd
 import random
 
 # Facebook Login Credentials
-username = "Enter Your Username/Email"
-password = "Enter Your Password"
+username = "athaidedhruv@gmail.com"
+password = "Jonathan1908"
 
 # XLSX File Reading
 data = pd.read_excel("profile_links.xlsx", header=None, names=['Profile Links'])
 
 profile_links = data['Profile Links'].tolist()
+
+# New XLSX file to store failed profile links
+failed_profiles_file = "failed_profiles.xlsx"
+
+# Create an empty DataFrame to store failed profile links
+failed_profiles_df = pd.DataFrame(columns=['Profile Links'])
 
 # Configuring the Chrome driver and Handling Notification Alert
 options = webdriver.ChromeOptions()
@@ -122,6 +128,11 @@ for profile_link in profile_links:
     except Exception as e:
         print("Error sending message to", profile_link, ":", e)
 
+        # Log the failed profile link to the CSV file
+        with open(failed_profiles_file, 'a') as file:
+            file.write(profile_link + '\n')
+
+        print(f"Profile link {profile_link} added to {failed_profiles_file}")
 
     print(number, "-----------------------------------------Msg_automate_kaux---------------------------------------------")
     number += 1
