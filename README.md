@@ -39,9 +39,14 @@ username = "Enter Your Username/Email"
 password = "Enter Your Password"
 ```
 
-Then, customize your message which you want to send to the facebook profile's on Line 44:
+Then, customize your messages which you want to send to the facebook profile's on Line 46-51 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
 ```bash
-text = "your message"
+messages = [
+    "Message 1",
+    "Message 2",
+    "Message 3",
+    # Add more messages as needed
+]
 ```
 
 Then, you can simply run the python file and not touch anything and it will execute the message sending to the facebook profile's provided in the XLSX or Excel File.

@@ -8,8 +8,8 @@ import pandas as pd
 import random
 
 # Facebook Login Credentials
-username = "Enter your Username/Email ID"
-password = "Enter your Password"
+username = "Enter Your Username/Email"
+password = "Enter Your Password"
 
 # XLSX File Reading
 data = pd.read_excel("profile_links.xlsx", header=None, names=['Profile Links'])
@@ -41,7 +41,14 @@ login_button.click()
 time.sleep(5)
 
 number = 1
-text = "your message"
+
+# Different messages array
+messages = [
+    "Message 1",
+    "Message 2",
+    "Message 3",
+    # Add more messages as needed
+]
 
 # Limit the number of messages sent in total and within a specific timeframe
 max_messages = 50  # Set your desired maximum number of messages
@@ -55,11 +62,12 @@ for profile_link in profile_links:
             break
 
         driver.get(profile_link)
-        driver.implicitly_wait(10)  # Wait for Website to Load
+        WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//body")))  # Wait for the page to load
 
         # XPath for the message button
         message_button_xpath = '/html/body/div[1]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[2]/div/div/div'
 
+        # Wait for the message button to be clickable
         message_button = WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable((By.XPATH, message_button_xpath))
         )
@@ -77,7 +85,10 @@ for profile_link in profile_links:
         # Find the message input field using XPath
         msg = driver.find_element(By.XPATH, message_input_xpath)
 
-        for letters in text:
+        # Randomly select a message from the array
+        selected_message = random.choice(messages)
+
+        for letters in selected_message:
             msg.send_keys(letters)
             time.sleep(random.uniform(0.1, 0.3))
 
