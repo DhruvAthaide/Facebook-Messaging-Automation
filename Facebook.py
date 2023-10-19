@@ -100,10 +100,12 @@ for profile_link in profile_links:
         # Pause the script to avoid rapid actions
         time.sleep(random.uniform(3.2, 4.5))
 
-        # Implement time interval check to prevent continuous messaging within a short timeframe
+        # Implement time interval check with a random additional delay
         if messages_sent % max_messages == 0:
-            print(f"Waiting for {time_interval / 60} minutes to avoid detection...")
-            time.sleep(time_interval)
+            additional_delay = random.uniform(1, 60)  # Random number of seconds (1 to 60)
+            total_delay = 240 + additional_delay  # 4 minutes + additional random seconds
+            print(f"Waiting for {total_delay / 60} minutes to avoid detection...")
+            time.sleep(total_delay)
             
         try:
             # Find the close chat button by Xpath
