@@ -40,6 +40,13 @@ username = "Enter Your Username/Email"
 password = "Enter Your Password"
 ```
 
+
+Then, Enter the path to your profile_links.csv file on Line 17 in the Code:
+```bash
+file_path = "Enter the path to your Profile_links.csv File"
+```
+
+
 Then, customize your messages which you want to send to the facebook profile's on Line 49-54 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
 ```bash
 messages = [

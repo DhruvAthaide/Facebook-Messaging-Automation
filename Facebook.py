@@ -14,7 +14,7 @@ username = "Enter Your Username/Email"
 password = "Enter Your Password"
 
 # CSV File Reading with specified encoding and removing leading/trailing whitespaces
-file_path = "C:\\Users\\athai\\VS Code\\Personal Coding\\Automated Projects\\Facebook Messaging Automation\\profile_links.csv"
+file_path = "Enter the path to your Profile_links.csv File"
 data = pd.read_csv(file_path, header=None, names=['Profile Links', 'Status'], encoding='latin1', skipinitialspace=True, skip_blank_lines=True)
 
 profile_links = data['Profile Links'].str.strip().tolist()
