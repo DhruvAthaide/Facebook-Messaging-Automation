@@ -10,8 +10,8 @@ import random
 import csv
 
 # Facebook Login Credentials
-username = "athaidedhruv@gmail.com"
-password = "Jonathan1908"
+username = "Enter Your Username/Email"
+password = "Enter Your Password"
 
 # CSV File Reading with specified encoding and removing leading/trailing whitespaces
 file_path = "C:\\Users\\athai\\VS Code\\Personal Coding\\Automated Projects\\Facebook Messaging Automation\\profile_links.csv"
