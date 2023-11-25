@@ -23,9 +23,9 @@ cd Facebook-Messaging-Automation
 pip install -r requirements.txt
 ```
 
-Then, you need to create a XLSX File or Excel File and name it:
+Then, you need to create a CSV File and name it:
 ```bash
-Name: profile_links.xlsx
+Name: profile_links.csv
 ```
 
 Then, you need to set the following column name in the Excel File and paste the facebook profile's link you want to message in this column:
@@ -33,23 +33,14 @@ Then, you need to set the following column name in the Excel File and paste the 
 Column 1: Profile Links
 ```
 
-Then, you need to create a XLSX File or Excel File for the Failed Profiles and name it:
-```bash
-Name: failed_profiles.xlsx
-```
 
-Then, you need to set the following column name in the Failed Profiles Excel File:
-```bash
-Column 1: Profile Links
-```
-
-Then, in the 'Facebook.py' file on Line 11 & 12 Enter your Username/Email ID and Password in between the Quotes for the String:
+Then, in the 'Facebook.py' file on Line 13 & 14 Enter your Username/Email ID and Password in between the Quotes for the String:
 ```bash
 username = "Enter Your Username/Email"
 password = "Enter Your Password"
 ```
 
-Then, customize your messages which you want to send to the facebook profile's on Line 52-57 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
+Then, customize your messages which you want to send to the facebook profile's on Line 49-54 and you can add multiple messages which you want to send and the script will randomize the messages sent to each user:
 ```bash
 messages = [
     "Message 1",
@@ -59,7 +50,9 @@ messages = [
 ]
 ```
 
-Then, you can simply run the python file and not touch anything and it will execute the message sending to the facebook profile's provided in the XLSX or Excel File.
+Then, you can simply run the python file and not touch anything and it will execute the message sending to the facebook profile's provided in the CSV File.
+
+Once the execution is done, there will be a new CSV File called 'profile_links_updated.csv' and in that file there will be a column next to the profile links and it will tell the status of whether it has messaged that particular profile or not. 
 
 ## Authors
 
