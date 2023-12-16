@@ -31,6 +31,7 @@ Name: profile_links.csv
 Then, you need to set the following column name in the Excel File and paste the facebook profile's link you want to message in this column:
 ```bash
 Column 1: Profile Links
+Column 2: Status
 ```
 
 
@@ -66,6 +67,8 @@ messages = [
 
 Then, you can simply run the python file and not touch anything and it will execute the message sending to the facebook profile's provided in the CSV File.
 
+
+Keep in mind, the scipt will randomly select any message from the 'messages' array to send to each user profile.
 
 ## Authors
 
