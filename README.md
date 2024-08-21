@@ -47,8 +47,6 @@ Then, Enter the path to your profile_links.csv file on Line 17 in the Code:
 file_path = "Enter the path to your Profile_links.csv File"
 ```
 
-Once the execution is done, there will be a new CSV File called 'profile_links_updated.csv' and in that file there will be a column next to the profile links and it will tell the status of whether it has messaged that particular profile or not. 
-
 Then, Enter the path to your profile_links_updated.csv file on Line 62 in the Code:
 ```bash
 updated_file_path = "Enter the path to your Profile_links_updated.csv"
@@ -67,6 +65,7 @@ messages = [
 
 Then, you can simply run the python file and not touch anything and it will execute the message sending to the facebook profile's provided in the CSV File.
 
+Once the execution is done, there will be a new CSV File called 'profile_links_updated.csv' and in that file there will be a column next to the profile links and it will tell the status of whether it has messaged that particular profile or not. 
 
 Keep in mind, the scipt will randomly select any message from the 'messages' array to send to each user profile.
 
